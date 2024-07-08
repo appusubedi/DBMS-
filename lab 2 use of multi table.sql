@@ -8,9 +8,9 @@
 		  --marks( obtain_marks ,subid , sid
 
 -- to link the two different database  syntax:use database database name
--- tocreate database
+-- 1 tocreate database
 create database CMS;
---create table 
+--2 create table 
 create table department
 	 ( did int not null identity(1,1) primary key ,
 	 dname varchar(20) ,
@@ -55,16 +55,18 @@ create table marks
    	  foreign key(subid) references subject (subid),
 	  	  foreign key(sid) references student (sid)
 );
+--3 insert the data on the tables 
 
---display records of those students who get maximum marks
-
-
---find name and marks of all students who get minimum mark in every address level
+--4 display records of those students who get maximum marks
 
 
---display list of subject learn by students of dob less than 2070-10-10
+--5 find name and marks of all students who get minimum mark in every address level
 
---display name of all students department csit or of address start with k 
+
+-- 6 display list of subject learn by students of dob less than 2070-10-10
+
+
+--7 display name of all students department csit or of address start with k 
 
 
 --8 increase mark of all student of address ktm by 20% 
@@ -107,3 +109,44 @@ where address like 'k%' and obtmarks < (select avg(obtmarks)from marks);
   select top(5)* 
   from student 
   where  address like 'd%' order by dob asc;
+
+  --14 increase the creadithr of all subject of name contains letter 'm' and study by students of address kathmandu 
+  
+  
+  select s.sid ,s.sname ,su.subname, su.credithr, s.address
+  from student s 
+  inner join  marks m on  s.sid = m.sid
+  inner join  subject su on su.subid = m.subid
+  where s.sname like '%a%' and s.address='dang';
+
+  --firstly  run first and then second  just like we do in previous code  
+  update subject
+  set credithr = credithr + 2 
+  from student s 
+  inner join  marks m on  s.sid = m.sid
+  inner join  subject su on su.subid = m.subid
+  where s.sname like '%a%' and s.address='dang';
+
+   --15 display records of all staff who not helps to any students 
+ 
+
+
+ --16 find out current age from dob of all students (datediff(year,dob,getdate())as age)
+  select *
+ from student 
+ where datediff (year,dob,getdate()) >20; 
+
+
+ --17 display only those students whose  dob contain 2005 year 
+
+
+ --18 display year month and day of all students and their names
+
+
+ --19 Display all students who associated with 'csit' department
+
+
+
+--20 find join of all af above  5-tables 
+
+
