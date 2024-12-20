@@ -108,7 +108,7 @@ values( 1 , 'asmita', 20,1 ),
 	 from staff as s
 	 cross join doctor d
 	 where  d.dname like '%a'
-	 -- yo code run garda doctor staff ko link bako sabai doctor i.e all possible records display vayo 
+	 -- yo code run garda doctor staff ko link vako sabai doctor i.e all possible records display vayo 
 	-- so specific result display garna we can run following code (kun staff ly kun doctor lai serve garxa vanny record matra display hunxa)
 	  select sname, d.dname
 	 from staff as s
@@ -240,7 +240,7 @@ from doctor d natural join staff s ;
 									*/
   
  
- --here we create different data base for	practicing nested query								where condition;)
+ --here we create different data base for	practicing nested query)
 --nested DB
 create database NestedDB;
 
